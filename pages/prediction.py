@@ -4,31 +4,39 @@ import pickle
 import numpy as np
 
 # Load the trained model
-model_path = 'model/gradient_boost_model.pkl'  # Adjusted path for the model
+model_path = 'model/gradient_boost_model.pkl'
 with open(model_path, 'rb') as file:
     model = pickle.load(file)
 
-# Page title and description
+# Judul Halaman dan Deskripsi
 st.title("Prediksi Tingkat Kesuburan Tanah")
 
-# Input fields for soil nutrients
+# Input untuk nutrisi tanah
 st.write("Masukkan nilai nutrisi tanah untuk melakukan prediksi:")
-N = st.number_input("Kandungan Nitrogen (N)", min_value=0.0, step=0.1)
-P = st.number_input("Kandungan Phosphorus (P)", min_value=0.0, step=0.1)
-K = st.number_input("Kandungan Kalium (K)", min_value=0.0, step=0.1)
-pH = st.number_input("pH Tanah", min_value=0.0, step=0.1)
-Moisture = st.number_input("Kelembapan Tanah", min_value=0.0, step=0.1)
-Cu = st.number_input("Kandungan Tembaga (Cu)", min_value=0.0, step=0.1)
-Zn = st.number_input("Kandungan Seng (Zn)", min_value=0.0, step=0.1)
 
-# Prediction button
+# Formulir input untuk setiap fitur tanah
+N = st.number_input("Rasio Nitrogen (NH4+) dalam tanah", min_value=0.0, step=0.1)
+P = st.number_input("Rasio Fosfor (P) dalam tanah", min_value=0.0, step=0.1)
+K = st.number_input("Rasio Kalium (K) dalam tanah", min_value=0.0, step=0.1)
+ph = st.number_input("Keasaman Tanah (pH)", min_value=0.0, step=0.1)
+ec = st.number_input("Kapasitas Konduktivitas Listrik", min_value=0.0, step=0.1)
+oc = st.number_input("Kandungan Karbon Organik", min_value=0.0, step=0.1)
+S = st.number_input("Kandungan Sulfur (S)", min_value=0.0, step=0.1)
+zn = st.number_input("Kandungan Seng (Zn)", min_value=0.0, step=0.1)
+fe = st.number_input("Kandungan Besi (Fe)", min_value=0.0, step=0.1)
+cu = st.number_input("Kandungan Tembaga (Cu)", min_value=0.0, step=0.1)
+Mn = st.number_input("Kandungan Mangan (Mn)", min_value=0.0, step=0.1)
+B = st.number_input("Kandungan Boron (B)", min_value=0.0, step=0.1)
+
+# Tombol untuk melakukan prediksi
 if st.button("Prediksi"):
-    # Prepare input data for the model
-    input_data = np.array([[N, P, K, pH, Moisture, Cu, Zn]])
-    # Make prediction
+    # Mempersiapkan data input untuk model
+    input_data = np.array([[N, P, K, ph, ec, oc, S, zn, fe, cu, Mn, B]])
+    
+    # Melakukan prediksi
     prediction = model.predict(input_data)[0]
 
-    # Map prediction to soil fertility label
+    # Menampilkan hasil prediksi
     if prediction == 0:
         st.success("Prediksi: Tanah Tidak Subur")
     elif prediction == 1:
