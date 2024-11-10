@@ -43,7 +43,7 @@ if st.button("Prediksi"):
 
     # Menampilkan hasil prediksi
     if prediction == 0:
-        st.success("Prediksi: Tanah Kurang Subur")
+        st.warning("Prediksi: Tanah Kurang Subur")
     elif prediction == 1:
         st.success("Prediksi: Tanah Subur")
     else:
