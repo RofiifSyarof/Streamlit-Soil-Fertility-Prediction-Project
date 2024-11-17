@@ -3,6 +3,8 @@ import streamlit as st
 import pickle
 import pandas as pd
 
+from assets.readable import info
+
 # Load the trained model
 model_path = 'model/gradient_boost_model.pkl'
 with open(model_path, 'rb') as file:
@@ -38,13 +40,31 @@ if st.button("Prediksi"):
     # Mempersiapkan data input untuk model
     input_data = pd.DataFrame([[N, P, K, ph, ec, oc, S, zn, fe, cu, Mn, B]], columns=feature_names)
     
+    # Tampilkan data input dalam bentuk dataframe
+    st.write("Data Input:")
+    st.write(input_data)
+    
     # Melakukan prediksi
     prediction = model.predict(input_data)[0]
 
     # Menampilkan hasil prediksi
     if prediction == 0:
         st.warning("Prediksi: Tanah Kurang Subur")
+        info.kurang_subur()
     elif prediction == 1:
         st.success("Prediksi: Tanah Subur")
+        info.subur()
     else:
         st.success("Prediksi: Tanah Sangat Subur")
+        info.sangat_subur()
+
+# Informasi Tambahan
+st.sidebar.title("Tentang Aplikasi")
+st.sidebar.info("""
+    Aplikasi Prediksi Kesuburan Tanah menggunakan Gradient Boosting Classifier.
+    
+    Cara Penggunaan:
+    1. Masukkan data tanah
+    2. Klik tombol prediksi
+    3. Hasil prediksi akan ditampilkan
+""")
