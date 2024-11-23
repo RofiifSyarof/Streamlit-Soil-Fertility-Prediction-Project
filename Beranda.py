@@ -1,6 +1,19 @@
 # home.py
 import streamlit as st
 
+import json
+
+from streamlit_lottie import st_lottie
+
+def load_lottie_file(path: str):
+    with open (path, "r") as file:
+        return json.load(file)
+
+lottie_question = load_lottie_file("./assets/lottiefiles/question.json")
+lottie_analyzing = load_lottie_file("./assets/lottiefiles/analyzing.json")
+lottie_comment_reading = load_lottie_file("./assets/lottiefiles/comment_reading.json")
+lottie_arrow_left = load_lottie_file("./assets/lottiefiles/arrow_left.json")
+
 # Set page config to widen the display area
 st.set_page_config(page_title="SoilSense", layout="wide")
 
@@ -14,7 +27,13 @@ st.write('\n')
 
 col1, col2 = st.columns([2, 2], vertical_alignment='center')
 with col1:
-    st.image("https://www.pngitem.com/pimgs/m/146-1468479_soil-png-transparent-png.png", width=150)
+    st_lottie(
+        lottie_question,
+        speed=1,
+        width=450,
+        height=450,
+        key="question"
+    )
 with col2:
     st.markdown("<h2 style='text-align: center;'>Apa itu SoilSense?</h2>", unsafe_allow_html=True)
     st.write(
@@ -47,7 +66,13 @@ with col1:
         """
     )
 with col2:
-        st.image("https://www.pngitem.com/pimgs/m/146-1468479_soil-png-transparent-png.png", width=150)
+    st_lottie(
+        lottie_analyzing,
+        speed=1,
+        width=450,
+        height=450,
+        key="analyzing"
+    )
 
 st.write('\n')
 st.write('\n')
@@ -56,7 +81,13 @@ st.write('\n')
 
 col1, col2 = st.columns([2, 2], vertical_alignment='center')
 with col1:
-    st.image("https://www.pngitem.com/pimgs/m/146-1468479_soil-png-transparent-png.png", width=150)
+    st_lottie(
+        lottie_comment_reading,
+        speed=1,
+        width=450,
+        height=450,
+        key="comment_reading"
+    )
 with col2:
     st.markdown("<h2 style='text-align: center;'>Bagaimana cara menggunakan SoilSense?</h2>", unsafe_allow_html=True)
     st.write(
@@ -72,7 +103,20 @@ st.write('\n')
 st.write('\n')
 st.write('\n')
 
-# Header
-st.markdown("<h2 style='text-align: center;'>Sudah siap menggunakan SoilSense?</h2>", unsafe_allow_html=True)
-# Subheader
-st.markdown("<h4 style='text-align: center;'>Buka sidebar di kiri layar dan pilih Prediksi.</h4>", unsafe_allow_html=True)
+
+
+col1, col2= st.columns([1, 1], vertical_alignment='center')
+with col1:
+    st_lottie(
+        lottie_arrow_left,
+        speed=1,
+        width=150,
+        height=150,
+        key="arrow_left"
+    )
+with col2:
+    # Header
+    st.markdown("<h2 style='text-align: center;'>Sudah siap menggunakan SoilSense?</h2>", unsafe_allow_html=True)
+    # Subheader
+    st.markdown("<h4 style='text-align: center;'>Buka sidebar di kiri layar dan pilih Prediksi.</h4>", unsafe_allow_html=True)    
+
