@@ -6,21 +6,22 @@ import pandas as pd
 from assets.readable import info
 
 # Load the trained model
-model_path = 'model/gradient_boost_model.pkl'
+model_path = 'model/gradient_boosting_model.pkl'
 with open(model_path, 'rb') as file:
     model = pickle.load(file)
 
 # Judul Halaman dan Deskripsi
 st.markdown(
     """
-    <h1 style='text-align: center;'><b>Prediksi SoilSense<b></h1>
+    <h1 style='text-align: center;'><b>🌱Prediksi SoilSense<b></h1>
     """,
     unsafe_allow_html=True
 )
+st.write('---')
 
 st.markdown(
     """
-    <h3 style='text-align: center;'>Instruksi penggunaan</h3>
+    <h3 style='text-align: center;'>⚠️Instruksi penggunaan⚠️</h3>
     <ol style='text-align: left; margin-left: 30%;'>
         <li>Masukkan data nutrisi tanah pada formulir yang tersedia.</li>
         <li>Klik tombol <b>"Prediksi"</b> untuk memulai prediksi.</li>
@@ -31,7 +32,7 @@ st.markdown(
 )
 
 # Input untuk nutrisi tanah
-st.subheader("Masukkan data nutrisi tanah pada form berikut:")
+st.subheader("📃Masukkan data nutrisi tanah pada form berikut:")
 
 # Formulir input untuk setiap fitur tanah
 col1,  col2 = st.columns([1, 1], vertical_alignment="center")
@@ -80,7 +81,7 @@ if container.button("Prediksi"):
     if prediction == 0:
         st.markdown(
             """
-            div style='display: flex; flex-direction: column; align-items: center;'>
+            <div style='display: flex; flex-direction: column; align-items: center;'>
                 <h5>Hasil prediksi menunjukkan bahwa data tanah Anda</h5>
                 <h2 style='
                     text-align: center; 
