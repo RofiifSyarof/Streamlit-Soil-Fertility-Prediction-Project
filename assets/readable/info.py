@@ -31,7 +31,7 @@ def kurang_subur():
     with col1:
         st.image('./assets/Images/Farmer.jpg')
     with col2:
-        st.markdown('#### Petani:')
+        st.markdown('#### 🧑‍🌾Petani:')
         st.write('Bagi petani yang tetap ingin melakukan pertanian di tanah kurang subur, disarankan untuk melakukan beberapa hal berikut:')
         st.write('1. Melakukan penambahan pupuk organik,')
         st.write('2. Menambahkan pupuk anorganik,')
@@ -41,7 +41,7 @@ def kurang_subur():
         
     col1, col2= st.columns([1, 1], vertical_alignment='center')
     with col1:
-        st.markdown('#### Pengusaha:')
+        st.markdown('#### 🧑‍💼Pengusaha:')
         st.write('Bagi pengusaha yang ingin mengembangkan bisnisnya, maka lahan dengan tanah yang kurang subur ini dapat dijadikan sebagai lahan untuk kegiatan non-pertanian seperti:')
         st.write('1. Pembangunan perumahan,')
         st.write('2. Pembangunan industri,')
