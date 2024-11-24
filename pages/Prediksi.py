@@ -117,7 +117,6 @@ if container.button("Prediksi"):
             """,
             unsafe_allow_html=True
         )
-        st.write("---")
         info.subur()
     else:
         st.markdown(
