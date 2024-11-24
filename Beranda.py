@@ -15,10 +15,11 @@ lottie_comment_reading = load_lottie_file("./assets/lottiefiles/comment_reading.
 lottie_arrow_left = load_lottie_file("./assets/lottiefiles/arrow_left.json")
 
 # Set page config to widen the display area
-st.set_page_config(page_title="SoilSense", layout="wide")
+st.set_page_config(page_title="🌱SoilSense", layout="wide")
 
 # Title and description
-st.markdown("<h1 style='text-align: center;font-weight: bold'>SoilSense</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;font-weight: bold'>🌱SoilSense</h1>", unsafe_allow_html=True)
+st.write('---')
 
 st.write('\n')
 st.write('\n')
@@ -31,8 +32,7 @@ with col1:
         lottie_question,
         speed=1,
         width=450,
-        height=450,
-        key="question"
+        height=450
     )
 with col2:
     st.markdown("<h2 style='text-align: center;'>Apa itu SoilSense?</h2>", unsafe_allow_html=True)
@@ -70,8 +70,7 @@ with col2:
         lottie_analyzing,
         speed=1,
         width=450,
-        height=450,
-        key="analyzing"
+        height=450
     )
 
 st.write('\n')
@@ -85,8 +84,7 @@ with col1:
         lottie_comment_reading,
         speed=1,
         width=450,
-        height=450,
-        key="comment_reading"
+        height=450
     )
 with col2:
     st.markdown("<h2 style='text-align: center;'>Bagaimana cara menggunakan SoilSense?</h2>", unsafe_allow_html=True)
@@ -105,14 +103,13 @@ st.write('\n')
 
 
 
-col1, col2= st.columns([1, 1], vertical_alignment='center')
+col1, col2= st.columns([1, 8])
 with col1:
     st_lottie(
         lottie_arrow_left,
         speed=1,
         width=150,
-        height=150,
-        key="arrow_left"
+        height=150
     )
 with col2:
     # Header
