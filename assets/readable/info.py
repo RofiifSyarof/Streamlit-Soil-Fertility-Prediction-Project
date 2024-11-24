@@ -186,5 +186,3 @@ def sangat_subur():
         <h3 style="text-align: center;">Dengan kondisi tanah yang sangat subur, petani dapat memperoleh hasil panen yang optimal.</h5>
         ''', unsafe_allow_html=True
     )
-
-sangat_subur()
